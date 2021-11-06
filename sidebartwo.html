@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>sidebar</title>
+		  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+ <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+<style type="text/css">
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif
+}
+
+body {
+    background-color: #eee
+}
+
+.btn {
+    position: absolute;
+    top: 10px;
+    left: 45px;
+    height: 37px;
+    width: 37px;
+    text-align: center;
+    background: #1b1b1b;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: left 0.4s ease
+}
+
+.btn.click {
+    left: 260px
+}
+
+.btn span {
+    color: white;
+    font-size: 15px;
+    line-height: 36px
+}
+
+.btn.click span:before {
+    content: '\f00d'
+}
+
+.sidebar {
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    left: -250px;
+    background: #1b1b1b;
+    transition: left 0.4s ease
+}
+
+.sidebar.show {
+    left: 0px
+}
+
+.sidebar .text {
+    color: white;
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 65px;
+    text-align: center;
+    background: #1e1e1e;
+    letter-spacing: 1px
+}
+
+nav ul {
+    background: #1b1b1b;
+    height: 100%;
+    width: 100%;
+    list-style: none;
+    padding-left: 10px
+}
+
+nav ul li {
+    line-height: 50px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1)
+}
+
+nav ul li:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05)
+}
+
+nav ul li a {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    padding-left: 14px;
+    font-weight: 500;
+    display: block;
+    width: 100%;
+    border-left: 3px solid transparent
+}
+
+nav ul li.active a {
+    color: #FC5404;
+    background: #1e1e1e;
+    border-left-color: #FC5404
+}
+
+nav ul li a:hover {
+    background: #1e1e1e
+}
+
+.feat-show {
+    transition: all 0.5s
+}
+
+nav ul li.active ul {
+    transition: all 0.5s
+}
+
+nav ul ul {
+    position: static;
+    display: none
+}
+
+nav ul.show {
+    display: block;
+    transition: all 0.5s
+}
+
+nav ul ul li {
+    line-height: 42px;
+    border-top: none
+}
+
+nav ul ul li a {
+    font-size: 12px;
+    color: #e6e6e6
+}
+
+nav ul li.active ul li a {
+    color: #e6e6e6;
+    background: #1b1b1b;
+    border-left-color: transparent
+}
+
+a:hover {
+    color: #FC5404 !important
+}
+
+nav ul ul li a:hover {
+    color: #FC5404 !important;
+    background: #1e1e1e !important
+}
+
+nav ul li a span {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 15px;
+    transition: transform 0.4s
+}
+
+nav ul li a span.rotate {
+    transform: translateY(-50%) rotate(-180deg)
+}
+
+.content {
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    color: #202020;
+    z-index: -1;
+    text-align: center
+}
+</style>
+</head>
+<body>
+
+	
+
+<div class="btn mt-0"> <span class="fas fa-bars"></span> </div>
+<nav class="sidebar">
+
+    <div class="text"> BBBootstrap.com </div>
+    <ul class="main_side">
+        <li class="active"><a href="#">Dashboard</a></li>
+        <li> <a href="#" id="1">Pages <span class="fas fa-caret-down"></span> </a>
+            <ul class="item-show-1">
+                <li><a href="#">Contact us</a></li>
+                <li><a href="#">Our Team</a></li>
+            </ul>
+        </li>
+        <li> <a href="#" id="2">Services <span class="fas fa-caret-down"></span> </a>
+            <ul class="item-show-2">
+                <li><a href="#">App Design</a></li>
+                <li><a href="#">Web Design</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Users</a></li>
+        <li><a href="#">Message</a></li>
+        <li><a href="#">Bookmark</a></li>
+        <li><a href="#">Files</a></li>
+    </ul>
+</nav>
+<div class="content">
+    <div class="header"> Main content goes here </div>
+</div>
+<script type="text/javascript">
+	$('.btn').click(function(){
+$(this).toggleClass("click");
+$('.sidebar').toggleClass("show");
+});
+
+
+$('.sidebar ul li a').click(function(){
+var id = $(this).attr('id');
+$('nav ul li ul.item-show-'+id).toggleClass("show");
+$('nav ul li #'+id+' span').toggleClass("rotate");
+
+});
+
+$('nav ul li').click(function(){
+$(this).addClass("active").siblings().removeClass("active");
+});
+</script>
+</body>
+</html>
