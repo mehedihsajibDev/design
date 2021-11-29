@@ -11,56 +11,72 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<div class="after-add-more">
-  <div class="d-flex justify-content-center mt-3">
-  	<div class="col-md-3">                                
-        <div class="form-row">
-            <label class="control-label text-primary">Product Name</label>
-            <input type="text" class="form-control" placeholder="Enter Logger Name" name="lg_name[]" />
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="form-group">
-            <label class="control-label text-primary">Product Quantity</label>
-            <input maxlength="200" type="text" class="form-control" placeholder="Enter Serial Number" name="lg_sl[]" />
-        </div>
-    </div>
-    <div class="col-md-3">
-    	<div class="form-group">
-    	 
-<input type="file" name="" class="mt-4">
-    	</div>
-    	
-    </div>
-   
-    <div class="col-md-3">
-        <div class="form-group change">
-            <label for="">&nbsp;</label><br/>
-            <a class="btn btn-success add-more">Add More</a>
-        </div>
+<div class="container">
+	<form class="row g-3 needs-validation" novalidate>
+  <div class="col-md-4">
+    <label for="validationCustom01" class="form-label">First name</label>
+    <input type="text" class="form-control" id="validationCustom01" value="Mark" required>
+    <div class="valid-feedback">
+      Looks good!
     </div>
   </div>
-    
+  <div class="col-md-4">
+    <label for="validationCustom02" class="form-label">Last name</label>
+    <input type="text" class="form-control" id="validationCustom02" value="Otto" required>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+  </div>
+  <div class="col-md-4">
+    <label for="validationCustomUsername" class="form-label">Username</label>
+    <div class="input-group has-validation">
+      <span class="input-group-text" id="inputGroupPrepend">@</span>
+      <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+      <div class="invalid-feedback">
+        Please choose a username.
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <label for="validationCustom03" class="form-label">City</label>
+    <input type="text" class="form-control" id="validationCustom03" required>
+    <div class="invalid-feedback">
+      Please provide a valid city.
+    </div>
+  </div>
+  <div class="col-md-3">
+    <label for="validationCustom04" class="form-label">State</label>
+    <select class="form-select" id="validationCustom04" required>
+      <option selected disabled value="">Choose...</option>
+      <option>...</option>
+    </select>
+    <div class="invalid-feedback">
+      Please select a valid state.
+    </div>
+  </div>
+  <div class="col-md-3">
+    <label for="validationCustom05" class="form-label">Zip</label>
+    <input type="text" class="form-control" id="validationCustom05" required>
+    <div class="invalid-feedback">
+      Please provide a valid zip.
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+      <label class="form-check-label" for="invalidCheck">
+        Agree to terms and conditions
+      </label>
+      <div class="invalid-feedback">
+        You must agree before submitting.
+      </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <button class="btn btn-primary" type="submit">Submit form</button>
+  </div>
+</form>
+	
 </div>
-
-<script type="text/javascript">
-	$(document).ready(function() {
-    $("body").on("click",".add-more",function(){ 
-        var html = $(".after-add-more").first().clone();
-      
-          $(html).find(".change").html("<label for=''>&nbsp;</label><br/><a class='btn btn-danger remove'>- Remove</a>");
-      
-      
-        $(".after-add-more").last().after(html);
-      
-     
-       
-    });
-
-    $("body").on("click",".remove",function(){ 
-        $(this).parents(".after-add-more").remove();
-    });
-});
-</script>
 </body>
 </html>
